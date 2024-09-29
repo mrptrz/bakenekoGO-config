@@ -118,6 +118,10 @@ RC(4,0)   RC(4,1)   RC(4,2)                      RC(4,5)                       R
     };
 };
 
+&on_off_key {
+    status = "okay";
+};
+
 &adc {
     status = "okay";
 };
