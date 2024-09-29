@@ -106,6 +106,11 @@ RC(4,0)   RC(4,1)   RC(4,2)                      RC(4,5)                       R
         label = "BATTERY";
     };   
 
+    wakeup_source: wakeup_source {
+        compatible = "zmk,gpio-key-wakeup-trigger";
+        wakeup-source;
+    };
+
     soft_off_wakers {
         compatible = "zmk,soft-off-wakeup-sources";
         wakeup-sources = <&wakeup_source>;
