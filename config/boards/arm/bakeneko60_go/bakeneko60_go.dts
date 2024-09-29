@@ -108,7 +108,7 @@ RC(4,0)   RC(4,1)   RC(4,2)                      RC(4,5)                       R
 
     wakeup_source: wakeup_source {
         compatible = "zmk,gpio-key-wakeup-trigger";
-        trigger = <&on_off_key>;
+        trigger = <&soft_off>;
         wakeup-source;
     };
 
@@ -116,10 +116,6 @@ RC(4,0)   RC(4,1)   RC(4,2)                      RC(4,5)                       R
         compatible = "zmk,soft-off-wakeup-sources";
         wakeup-sources = <&wakeup_source>;
     };
-};
-
-&on_off_key {
-    status = "okay";
 };
 
 &adc {
