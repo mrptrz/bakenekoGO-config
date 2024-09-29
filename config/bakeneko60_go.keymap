@@ -10,17 +10,6 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
-    kscan0: kscan_0 {
-        compatible = "zmk,kscan-gpio-matrix";
-        label = "KSCAN";
-        diode-direction = "col2row";
-        wakeup-source;
-
-        ...
-    };
-};
-
-/ {
     keys {
         compatible = "gpio-keys";
         soft_off_key: soft_off_key {
