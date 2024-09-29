@@ -76,7 +76,7 @@ RC(4,0)   RC(4,1)   RC(4,2)                      RC(4,5)                       R
         hw_soft_off: hw_soft_off {
             compatible = "zmk,behavior-soft-off";
             #binding-cells = <0>;
-            hold-time-ms = <2000>;
+            hold-time-ms = <5000>;
         };
     };
 
@@ -112,10 +112,9 @@ RC(4,0)   RC(4,1)   RC(4,2)                      RC(4,5)                       R
         wakeup-source;
     };
 
-    wakeup_source: wakeup_source {
-        compatible = "zmk,gpio-key-wakeup-trigger";
-        trigger = <&soft_off_key>;
-        wakeup-source;
+    soft_off_wakers {
+        compatible = "zmk,soft-off-wakeup-sources";
+        wakeup-sources = <&wakeup_source>;
     };
 
     side_band_behavior_triggers: side_band_behavior_triggers {
@@ -132,9 +131,10 @@ RC(4,0)   RC(4,1)   RC(4,2)                      RC(4,5)                       R
         };
     };
 
-     soft_off_wakers {
-        compatible = "zmk,soft-off-wakeup-sources";
-        wakeup-sources = <&wakeup_source>;
+    wakeup_source: wakeup_source {
+        compatible = "zmk,gpio-key-wakeup-trigger";
+        trigger = <&soft_off_key>;
+        wakeup-source;
     };
 };
 
