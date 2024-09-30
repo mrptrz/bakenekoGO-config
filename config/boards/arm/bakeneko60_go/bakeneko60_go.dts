@@ -72,14 +72,6 @@ RC(4,0)   RC(4,1)   RC(4,2)                      RC(4,5)                       R
             ;
     };
 
-    behaviors {
-        hw_soft_off: hw_soft_off {
-            compatible = "zmk,behavior-soft-off";
-            #binding-cells = <0>;
-            hold-time-ms = <5000>;
-        };
-    };
-
     leds {
         compatible = "gpio-leds";
         blue_led: led_0 {
@@ -108,7 +100,7 @@ RC(4,0)   RC(4,1)   RC(4,2)                      RC(4,5)                       R
 
     soft_off_direct_scan: soft_off_direct_scan {
         compatible = "zmk,kscan-gpio-direct";
-        input-keys = <&soft_off_key>;
+        input-keys = <&sys_reset_key>;
         wakeup-source;
     };
 
@@ -133,7 +125,7 @@ RC(4,0)   RC(4,1)   RC(4,2)                      RC(4,5)                       R
 
     wakeup_source: wakeup_source {
         compatible = "zmk,gpio-key-wakeup-trigger";
-        trigger = <&soft_off_key>;
+        trigger = <&sys_reset_key>;
         wakeup-source;
     };
 };
